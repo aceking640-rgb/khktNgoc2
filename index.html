@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Classroom</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+    <main class="login-card">
+        <div class="brand-mark">SC</div>
+        <h1>Smart Classroom</h1>
+        <p class="muted">Hệ thống quản lý lớp học thông minh</p>
+
+        <form id="loginForm" class="login-form">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required>
+
+            <label for="password">Mật khẩu</label>
+            <input id="password" type="password" placeholder="••••••••" required>
+
+            <button class="primary-btn" type="submit">Đăng nhập</button>
+        </form>
+
+        <p id="loginMessage" class="message"></p>
+        <p class="demo-note">Bản hiện tại: giao diện thử nghiệm. Chưa kết nối Supabase Auth.</p>
+    </main>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            window.location.href = 'dashboard.html';
+        });
+    </script>
+</body>
+</html>

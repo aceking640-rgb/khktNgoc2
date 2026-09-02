@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Classroom - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="logo-area">
+                <div class="brand-mark">SC</div>
+                <div>
+                    <strong>Smart Classroom</strong>
+                    <span>Control Center</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a class="nav-item active" href="#dashboard">Dashboard</a>
+                <a class="nav-item" href="#devices">Thiết bị</a>
+                <a class="nav-item" href="#settings">Cài đặt AUTO</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="connection-badge">
+                    <span class="status-dot"></span>
+                    <span>Demo mode</span>
+                </div>
+                <button class="logout-btn" id="logoutBtn">Đăng xuất</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">SMART CLASSROOM</p>
+                    <h1>Phòng 101</h1>
+                </div>
+                <div class="topbar-right">
+                    <span class="live-pill"><span class="status-dot"></span> Trực tiếp</span>
+                    <span id="clock">--:--:--</span>
+                </div>
+            </header>
+
+            <section class="sensor-grid">
+                <article class="sensor-card">
+                    <div class="sensor-icon temp-icon">°C</div>
+                    <div>
+                        <span class="card-label">NHIỆT ĐỘ</span>
+                        <strong id="temperatureValue">28.5°C</strong>
+                        <span id="temperatureStatus" class="card-status">Bình thường</span>
+                    </div>
+                </article>
+
+                <article class="sensor-card">
+                    <div class="sensor-icon light-icon">☀</div>
+                    <div>
+                        <span class="card-label">ÁNH SÁNG</span>
+                        <strong id="lightValue">420 lux</strong>
+                        <span id="lightStatus" class="card-status">Đủ sáng</span>
+                    </div>
+                </article>
+            </section>
+
+            <section id="devices" class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">CONTROL</p>
+                        <h2>Điều khiển thiết bị</h2>
+                    </div>
+                    <span class="small-note">AUTO điều chỉnh 0–100%</span>
+                </div>
+
+                <div class="device-grid">
+                    <article class="device-card">
+                        <div class="device-head">
+                            <div>
+                                <span class="device-symbol">🌀</span>
+                                <div>
+                                    <h3>Quạt</h3>
+                                    <p id="fanModeText">AUTO</p>
+                                </div>
+                            </div>
+                            <span id="fanState" class="device-state">80%</span>
+                        </div>
+
+                        <div class="level-row">
+                            <span>Mức hoạt động</span>
+                            <strong id="fanLevelText">80%</strong>
+                        </div>
+                        <input id="fanLevel" class="range-control" type="range" min="0" max="100" value="80">
+
+                        <div class="device-actions">
+                            <button class="mode-btn active" data-device="fan" data-mode="auto">AUTO</button>
+                            <button class="mode-btn" data-device="fan" data-mode="manual">MANUAL</button>
+                        </div>
+
+                        <div class="manual-row" id="fanManualControls">
+                            <button class="quick-btn" data-device="fan" data-level="0">Tắt</button>
+                            <button class="quick-btn" data-device="fan" data-level="50">50%</button>
+                            <button class="quick-btn" data-device="fan" data-level="100">100%</button>
+                        </div>
+                    </article>
+
+                    <article class="device-card">
+                        <div class="device-head">
+                            <div>
+                                <span class="device-symbol">💡</span>
+                                <div>
+                                    <h3>Đèn</h3>
+                                    <p id="lightModeText">AUTO</p>
+                                </div>
+                            </div>
+                            <span id="deviceLightState" class="device-state">45%</span>
+                        </div>
+
+                        <div class="level-row">
+                            <span>Mức hoạt động</span>
+                            <strong id="deviceLightLevelText">45%</strong>
+                        </div>
+                        <input id="deviceLightLevel" class="range-control" type="range" min="0" max="100" value="45">
+
+                        <div class="device-actions">
+                            <button class="mode-btn active" data-device="light" data-mode="auto">AUTO</button>
+                            <button class="mode-btn" data-device="light" data-mode="manual">MANUAL</button>
+                        </div>
+
+                        <div class="manual-row" id="lightManualControls">
+                            <button class="quick-btn" data-device="light" data-level="0">Tắt</button>
+                            <button class="quick-btn" data-device="light" data-level="50">50%</button>
+                            <button class="quick-btn" data-device="light" data-level="100">100%</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="settings" class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">AUTOMATION</p>
+                        <h2>Ngưỡng điều khiển AUTO</h2>
+                    </div>
+                </div>
+
+                <div class="automation-grid">
+                    <article class="settings-card">
+                        <div class="settings-title-row">
+                            <div>
+                                <h3>🌀 Quạt theo nhiệt độ</h3>
+                                <p class="settings-help">Mỗi mốc xác định nhiệt độ từ đó quạt chạy ở mức đã chọn.</p>
+                            </div>
+                        </div>
+
+                        <div class="setting-table-head">
+                            <span>Nhiệt độ</span>
+                            <span>Mức quạt</span>
+                        </div>
+                        <div id="fanAutoSettings" class="setting-input-list"></div>
+
+                        <div class="settings-actions settings-actions-split">
+                            <button id="addFanSetting" class="secondary-settings-btn">+ Thêm mốc</button>
+                            <button id="saveFanSettings" class="save-settings-btn">Lưu mức quạt</button>
+                        </div>
+                    </article>
+
+                    <article class="settings-card">
+                        <div class="settings-title-row">
+                            <div>
+                                <h3>💡 Đèn theo ánh sáng</h3>
+                                <p class="settings-help">Ánh sáng càng thấp thì đèn có thể tăng mức sáng tương ứng.</p>
+                            </div>
+                        </div>
+
+                        <div class="setting-table-head">
+                            <span>Ánh sáng</span>
+                            <span>Mức đèn</span>
+                        </div>
+                        <div id="lightAutoSettings" class="setting-input-list"></div>
+
+                        <div class="settings-actions settings-actions-split">
+                            <button id="addLightSetting" class="secondary-settings-btn">+ Thêm mốc</button>
+                            <button id="saveLightSettings" class="save-settings-btn">Lưu mức đèn</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section-block">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">HISTORY</p>
+                        <h2>Dữ liệu gần đây</h2>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="fake-chart">
+                        <div class="chart-line"></div>
+                        <div class="chart-caption">Biểu đồ sẽ lấy dữ liệu thật từ Supabase ở bước tiếp theo.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
